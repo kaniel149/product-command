@@ -13,6 +13,7 @@ import '@xyflow/react/dist/style.css'
 import { useCanvasStore } from '../../stores/canvasStore'
 import { useAppStore } from '../../stores/appStore'
 import { nodeTypes } from '../nodes'
+import { NodeToolbar } from './NodeToolbar'
 
 export function BoardCanvas() {
   const activeBoard = useAppStore((s) => s.activeBoard)
@@ -37,6 +38,8 @@ export function BoardCanvas() {
   )
 
   return (
+    <div className="relative w-full h-full">
+    <NodeToolbar />
     <ReactFlow
       nodes={nodes}
       edges={edges}
@@ -55,5 +58,6 @@ export function BoardCanvas() {
         maskColor="rgba(0, 0, 0, 0.6)"
       />
     </ReactFlow>
+    </div>
   )
 }
