@@ -20,23 +20,23 @@ export const panamaJourneyNodes: Node[] = [
 
   // Awareness stage
   { id: 's1', type: 'stage', position: { x: 300, y: 100 }, data: { label: 'Awareness', funnelStage: '1' } },
-  { id: 't1', type: 'touchpoint', position: { x: 300, y: 250 }, data: { label: 'Landing Page (Expats)', type: 'page', url: '' } },
-  { id: 't2', type: 'touchpoint', position: { x: 300, y: 400 }, data: { label: 'Landing Page (Hotels)', type: 'page', url: '' } },
+  { id: 't1', type: 'touchpoint', position: { x: 300, y: 250 }, data: { label: 'Landing Page (Expats)', type: 'page', url: 'https://solaris-panama.com' } },
+  { id: 't2', type: 'touchpoint', position: { x: 300, y: 400 }, data: { label: 'Landing Page (Hotels)', type: 'page', url: 'https://solaris-panama.com/towns/solar-pedasi.html' } },
   { id: 'm1', type: 'message', position: { x: 300, y: 550 }, data: { content: 'Su Techo Ya Genera Dinero. Solo Falta Activarlo.', language: 'ES' } },
 
   // Interest stage
   { id: 's2', type: 'stage', position: { x: 600, y: 100 }, data: { label: 'Interest', funnelStage: '2' } },
-  { id: 't3', type: 'touchpoint', position: { x: 600, y: 250 }, data: { label: 'ROI Calculator', type: 'page', url: '' } },
+  { id: 't3', type: 'touchpoint', position: { x: 600, y: 250 }, data: { label: 'ROI Calculator', type: 'page', url: 'https://crm.solaris-panama.com/tools/calculator' } },
   { id: 't4', type: 'touchpoint', position: { x: 600, y: 400 }, data: { label: 'WhatsApp First Contact', type: 'whatsapp' } },
 
   // Consideration stage
   { id: 's3', type: 'stage', position: { x: 900, y: 100 }, data: { label: 'Consideration', funnelStage: '3' } },
   { id: 'd1', type: 'decision', position: { x: 900, y: 250 }, data: { question: 'Fills form?', yesLabel: 'Yes', noLabel: 'No' } },
-  { id: 't5', type: 'touchpoint', position: { x: 900, y: 420 }, data: { label: 'Free Site Assessment', type: 'form' } },
+  { id: 't5', type: 'touchpoint', position: { x: 900, y: 420 }, data: { label: 'Free Site Assessment', type: 'form', url: 'https://crm.solaris-panama.com/tools/scanner' } },
 
   // Decision stage
   { id: 's4', type: 'stage', position: { x: 1200, y: 100 }, data: { label: 'Decision', funnelStage: '4' } },
-  { id: 't6', type: 'touchpoint', position: { x: 1200, y: 250 }, data: { label: 'Custom Proposal (EPC vs PPA)', type: 'page' } },
+  { id: 't6', type: 'touchpoint', position: { x: 1200, y: 250 }, data: { label: 'Custom Proposal (EPC vs PPA)', type: 'page', url: 'https://crm.solaris-panama.com/tools/proposal-generator' } },
   { id: 'k1', type: 'kpi', position: { x: 1200, y: 420 }, data: { label: 'Avg Cycle', value: '2-9 mo', target: '< 3 mo' } },
 
   // Conversion stage
