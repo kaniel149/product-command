@@ -42,14 +42,13 @@
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     section { padding: 96px 0; }
 
-    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* Fade in disabled — all visible immediately */
+    .fade-in { opacity: 1 !important; transform: none !important; }
+    .fade-in.visible { opacity: 1 !important; transform: none !important; }
 
     /* Gradient text */
     .gradient-text {
-      background: linear-gradient(135deg, #1E40AF 0%, #dc2626 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #dc2626;
     }
 
     /* ── Nav ── */
@@ -870,12 +869,6 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
   document.querySelectorAll('.feature-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();

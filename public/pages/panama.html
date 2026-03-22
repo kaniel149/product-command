@@ -58,10 +58,7 @@
     p  { color: #e4e4e7; line-height: 1.7; }
 
     .gradient-text {
-      background: var(--accent-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--amber);
     }
 
     /* ─── Layout ─── */
@@ -74,20 +71,10 @@
 
     section { padding: 96px 0; }
 
-    /* ─── Fade-in animation ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-up.delay-1 { transition-delay: 0.08s; }
-    .fade-up.delay-2 { transition-delay: 0.16s; }
-    .fade-up.delay-3 { transition-delay: 0.24s; }
-    .fade-up.delay-4 { transition-delay: 0.32s; }
+    /* ─── Fade-in animation (disabled — all visible immediately) ─── */
+    .fade-up { opacity: 1 !important; transform: none !important; }
+    .fade-up.visible { opacity: 1 !important; transform: none !important; }
+    .fade-up.delay-1, .fade-up.delay-2, .fade-up.delay-3, .fade-up.delay-4 { transition-delay: 0s; }
 
     /* ─── Buttons ─── */
     .btn {
@@ -1455,28 +1442,6 @@
     })();
   </script>
 
-  <!-- ─── Scroll Animations ─── -->
-  <script>
-    (function () {
-      var elements = document.querySelectorAll('.fade-up');
-      if (!('IntersectionObserver' in window)) {
-        elements.forEach(function (el) { el.classList.add('visible'); });
-        return;
-      }
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-      );
-      elements.forEach(function (el) { observer.observe(el); });
-    })();
-  </script>
 
 </body>
 </html>

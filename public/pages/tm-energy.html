@@ -45,21 +45,11 @@
     }
 
     .grad-text {
-      background: linear-gradient(135deg, #E8A820 0%, #D4941A 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E8A820;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 1 !important; transform: none !important; }
+    .fade-in.visible { opacity: 1 !important; transform: none !important; }
 
     /* ─── Nav ─── */
     nav {
@@ -1541,24 +1531,6 @@
 
   <!-- ─── Scroll Animation + FAQ ─── -->
   <script>
-    // Scroll fade-in
-    (function () {
-      var els = document.querySelectorAll('.fade-in');
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(function (el) { el.classList.add('visible'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(function (el) { io.observe(el); });
-    })();
-
     // Sticky CTA — show after hero scrolls out of view
     (function () {
       var stickyCta = document.getElementById('sticky-cta');
