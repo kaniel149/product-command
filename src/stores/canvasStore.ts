@@ -9,6 +9,7 @@ import {
   type Connection,
   addEdge,
 } from '@xyflow/react'
+import { seedData } from '../data/seeds'
 
 interface CanvasState {
   nodes: Record<string, Node[]>
@@ -23,8 +24,12 @@ interface CanvasState {
 }
 
 export const useCanvasStore = create<CanvasState>((set, get) => ({
-  nodes: {},
-  edges: {},
+  nodes: Object.fromEntries(
+    Object.entries(seedData).map(([k, v]) => [k, v.nodes])
+  ),
+  edges: Object.fromEntries(
+    Object.entries(seedData).map(([k, v]) => [k, v.edges])
+  ),
   getNodes: (boardId) => get().nodes[boardId] ?? [],
   getEdges: (boardId) => get().edges[boardId] ?? [],
   onNodesChange: (boardId, changes) =>
