@@ -1,8 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePanelStore } from '../../stores/panelStore'
+import { createStitchProject, syncFromStitch } from '../../lib/stitch'
+import { useCanvasStore } from '../../stores/canvasStore'
+import { useAppStore } from '../../stores/appStore'
 
 export function AssetPreviewPanel() {
   const { isOpen, asset, close } = usePanelStore()
+  const updateNodeData = useCanvasStore((s) => s.updateNodeData)
+  const activeBoard = useAppStore((s) => s.activeBoard)
 
   return (
     <AnimatePresence>
@@ -58,10 +63,30 @@ export function AssetPreviewPanel() {
                   Open Live ↗
                 </a>
               )}
-              <button className="text-xs px-3 py-1.5 bg-accent/10 text-accent rounded-md hover:bg-accent/20">
+              <button
+                className="text-xs px-3 py-1.5 bg-accent/10 text-accent rounded-md hover:bg-accent/20"
+                onClick={async () => {
+                  const project = await createStitchProject(asset.label)
+                  if (project) {
+                    updateNodeData(activeBoard, asset.nodeId, {
+                      stitchProjectId: project.projectId,
+                    })
+                  }
+                }}
+              >
                 Edit in Stitch
               </button>
-              <button className="text-xs px-3 py-1.5 bg-hover text-text-secondary rounded-md hover:text-text-primary">
+              <button
+                className="text-xs px-3 py-1.5 bg-hover text-text-secondary rounded-md hover:text-text-primary"
+                onClick={async () => {
+                  if (asset.stitchProjectId && asset.stitchScreenId) {
+                    const screenshotUrl = await syncFromStitch(asset.stitchProjectId, asset.stitchScreenId)
+                    if (screenshotUrl) {
+                      updateNodeData(activeBoard, asset.nodeId, { screenshotUrl })
+                    }
+                  }
+                }}
+              >
                 Sync Screenshot
               </button>
             </div>
