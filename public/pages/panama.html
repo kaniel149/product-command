@@ -52,10 +52,10 @@
 
     /* ─── Typography ─── */
     h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.2rem, 5.5vw, 4.2rem); }
+    h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.05; }
     h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
     h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
-    p  { color: var(--text-muted); line-height: 1.7; }
+    p  { color: #e4e4e7; line-height: 1.7; }
 
     .gradient-text {
       background: var(--accent-grad);
@@ -366,7 +366,7 @@
     }
     .stat-label {
       font-size: 0.85rem;
-      color: var(--text-subtle);
+      color: #a1a1aa;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-weight: 500;
@@ -385,7 +385,7 @@
     .section-title { margin-bottom: 16px; }
     .section-sub {
       font-size: 1.05rem;
-      color: var(--text-muted);
+      color: #a1a1aa;
       max-width: 520px;
       margin-bottom: 56px;
     }
@@ -437,7 +437,7 @@
       color: var(--text);
       margin-bottom: 10px;
     }
-    .benefit-desc { font-size: 0.95rem; line-height: 1.65; }
+    .benefit-desc { font-size: 0.95rem; line-height: 1.65; color: #e4e4e7; }
 
     /* ─── How it works ─── */
     #how { background: var(--surface); }
@@ -484,7 +484,7 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
-    .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .step-desc { font-size: 0.9rem; color: #e4e4e7; line-height: 1.65; }
 
     /* ─── Case Study ─── */
     .case-study-card {
@@ -550,7 +550,7 @@
     }
     .case-quote {
       font-size: 1.05rem;
-      color: var(--text-muted);
+      color: #e4e4e7;
       line-height: 1.75;
       font-style: italic;
       margin-bottom: 32px;
@@ -665,7 +665,7 @@
       align-items: flex-start;
       gap: 12px;
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: #e4e4e7;
     }
     .financing-feature-check {
       width: 20px;
@@ -729,7 +729,7 @@
     }
     .faq-answer {
       padding: 0 28px 22px;
-      color: var(--text-muted);
+      color: #e4e4e7;
       font-size: 0.95rem;
       line-height: 1.7;
     }
@@ -892,6 +892,103 @@
       font-size: 1.1rem;
     }
 
+    /* ─── Sticky CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid #27272a;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      gap: 16px;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .sticky-cta-text span {
+      color: var(--amber);
+    }
+
+    /* ─── Trust Bar ─── */
+    .trust-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .trust-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #a1a1aa;
+      white-space: nowrap;
+    }
+    .trust-bar-item .trust-bar-icon {
+      font-size: 1rem;
+    }
+
+    /* ─── Objection Strip ─── */
+    .objection-strip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-bottom: 56px;
+    }
+    .objection-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 0 24px;
+      position: relative;
+    }
+    .objection-item + .objection-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+    .objection-question {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .objection-answer {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--amber);
+    }
+
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
       .benefits-grid { grid-template-columns: 1fr; }
@@ -904,10 +1001,15 @@
       .hero-visual { display: none; }
       .nav-links .nav-link { display: none; }
       .hero-actions { flex-direction: column; align-items: flex-start; }
+      .objection-strip { flex-direction: column; gap: 16px; }
+      .objection-item + .objection-item::before { display: none; }
+      .objection-item { padding: 0; }
+      .trust-bar-inner { gap: 16px; }
     }
 
     @media (max-width: 640px) {
       section { padding: 64px 0; }
+      h1 { font-size: clamp(1.8rem, 9vw, 3rem); }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(3)::before { display: none; }
       .case-metrics { padding: 32px; }
@@ -916,11 +1018,22 @@
       .benefit-card { padding: 24px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .whatsapp-float .whatsapp-label { display: none; }
-      .whatsapp-float { padding: 14px 16px; }
+      .whatsapp-float { padding: 14px 16px; bottom: 72px; }
+      .sticky-cta { padding: 10px 16px; }
+      .sticky-cta-text { font-size: 0.85rem; }
+      .btn.sticky-btn { width: auto; flex-shrink: 0; padding: 10px 16px; font-size: 0.85rem; }
+      .trust-bar-inner { justify-content: flex-start; padding: 0 8px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ─── Sticky CTA Bar ─── -->
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <div class="sticky-cta-text">Reduzca su factura <span>un 70%</span> — sin pago inicial</div>
+    <a href="#cta" class="btn btn-primary sticky-btn">Calcular Mis Ahorros →</a>
+  </div>
 
   <!-- ─── Floating WhatsApp ─── -->
   <a href="https://wa.me/50765831822?text=Hola%20Solaris%2C%20me%20interesa%20una%20evaluación%20solar%20gratuita" target="_blank" rel="noopener" class="whatsapp-float">
@@ -940,7 +1053,7 @@
         <a href="#how" class="nav-link">Proceso</a>
         <a href="#financing" class="nav-link">Financiamiento</a>
         <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#cta" class="btn btn-primary nav-cta">Solicitar Evaluación</a>
+        <a href="#cta" class="btn btn-primary nav-cta">Calcular Mis Ahorros</a>
       </div>
     </div>
   </nav>
@@ -980,9 +1093,6 @@
         <div class="hero-actions fade-up delay-3">
           <a href="#cta" class="btn btn-primary btn-lg">
             Calcular Mis Ahorros →
-          </a>
-          <a href="#how" class="btn btn-outline btn-lg">
-            Cómo Funciona
           </a>
         </div>
 
@@ -1024,6 +1134,18 @@
           <div class="stat-number">3–5 años</div>
           <div class="stat-label">Retorno de inversión</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Trust Bar ─── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-bar-item"><span class="trust-bar-icon">🛡️</span> Licencia ASEP</div>
+        <div class="trust-bar-item"><span class="trust-bar-icon">⭐</span> 4.9/5 Clientes</div>
+        <div class="trust-bar-item"><span class="trust-bar-icon">🏆</span> 50+ Instalaciones</div>
+        <div class="trust-bar-item"><span class="trust-bar-icon">📋</span> Garantía 25 Años</div>
       </div>
     </div>
   </div>
@@ -1204,10 +1326,27 @@
   <section id="faq">
     <div class="container">
       <div class="section-header-center fade-up">
-        <span class="section-label">FAQ</span>
+        <span class="section-label">Preguntas Comunes</span>
         <h2 class="section-title">Preguntas <span class="gradient-text">Frecuentes</span></h2>
         <p class="section-sub">Todo lo que necesita saber antes de tomar la decisión.</p>
       </div>
+
+      <!-- Objection-handling strip -->
+      <div class="objection-strip fade-up">
+        <div class="objection-item">
+          <div class="objection-question">¿Preocupado por el costo?</div>
+          <div class="objection-answer">$0 inicial con PPA</div>
+        </div>
+        <div class="objection-item">
+          <div class="objection-question">¿Su techo es adecuado?</div>
+          <div class="objection-answer">Evaluación gratuita en 48h</div>
+        </div>
+        <div class="objection-item">
+          <div class="objection-question">¿Cuánto tiempo toma?</div>
+          <div class="objection-answer">Instalación en 2–6 semanas</div>
+        </div>
+      </div>
+
       <div class="faq-list">
         <details class="faq-item fade-up">
           <summary>¿Cuánto cuesta un sistema solar en Panamá?</summary>
@@ -1251,7 +1390,7 @@
           Reciba su análisis solar personalizado en 48 horas. Gratis, sin compromiso, sin presión.
         </p>
         <a href="https://wa.me/50765831822?text=Hola%20Solaris%2C%20me%20interesa%20una%20evaluación%20solar%20gratuita" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-          Solicitar Evaluación Gratuita →
+          Calcular Mis Ahorros →
         </a>
         <div class="trust-badges">
           <div class="trust-badge"><span>✓</span> 50+ Empresas en Panamá</div>
@@ -1290,6 +1429,31 @@
       </div>
     </div>
   </footer>
+
+  <!-- ─── Sticky CTA Observer ─── -->
+  <script>
+    (function () {
+      var stickyCta = document.getElementById('sticky-cta');
+      var hero = document.getElementById('hero');
+      if (stickyCta && hero && 'IntersectionObserver' in window) {
+        var heroObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                stickyCta.classList.add('visible');
+                stickyCta.removeAttribute('aria-hidden');
+              } else {
+                stickyCta.classList.remove('visible');
+                stickyCta.setAttribute('aria-hidden', 'true');
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        heroObserver.observe(hero);
+      }
+    })();
+  </script>
 
   <!-- ─── Scroll Animations ─── -->
   <script>

@@ -22,8 +22,8 @@
       --accent-glow:rgba(30,64,175,.18);
       --accent2:    #EA580C;
       --text-1:     #fafafa;
-      --text-2:     #a1a1aa;
-      --text-3:     #71717a;
+      --text-2:     #c4c4cc;
+      --text-3:     #a1a1aa;
       --green:      #22c55e;
       --amber:      #f59e0b;
       --radius:     12px;
@@ -235,8 +235,9 @@
     .hero-content { position: relative; z-index: 1; }
 
     .hero h1 {
-      font-size: clamp(32px, 5.5vw, 58px);
-      font-weight: 800;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
       margin-bottom: 20px;
       color: var(--text-1);
     }
@@ -397,7 +398,7 @@
 
     .problem-card p {
       font-size: 13px;
-      color: var(--text-3);
+      color: var(--text-2);
       line-height: 1.6;
     }
 
@@ -461,7 +462,7 @@
 
     .feature-card p {
       font-size: 13px;
-      color: var(--text-3);
+      color: var(--text-2);
       line-height: 1.65;
     }
 
@@ -570,7 +571,7 @@
 
     .metric-desc {
       font-size: 13px;
-      color: var(--text-3);
+      color: var(--text-2);
     }
 
     /* ─── Pricing ───────────────────────────────────────────────── */
@@ -755,7 +756,7 @@
     .faq-answer-inner {
       padding: 0 24px 20px;
       font-size: 14px;
-      color: var(--text-2);
+      color: #e4e4e7;
       line-height: 1.7;
       border-top: 1px solid var(--border-dim);
       padding-top: 16px;
@@ -943,6 +944,180 @@
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-actions .btn-lg { width: 100%; }
     }
+
+    /* ─── Hero Mockup ────────────────────────────────────────── */
+    .hero-mockup {
+      margin-top: 52px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mockup-browser {
+      width: 100%;
+      max-width: 740px;
+      background: rgba(24,24,27,.8);
+      border: 1px solid rgba(30,64,175,.3);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04), inset 0 1px 0 rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+    }
+
+    .mockup-bar {
+      height: 36px;
+      background: rgba(9,9,11,.6);
+      border-bottom: 1px solid var(--border-dim);
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 6px;
+    }
+
+    .mockup-bar .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .mockup-bar .dot.red    { background: #ff5f57; }
+    .mockup-bar .dot.yellow { background: #ffbd2e; }
+    .mockup-bar .dot.green  { background: #28c840; }
+
+    .mockup-url {
+      flex: 1;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-3);
+      font-family: var(--mono);
+      letter-spacing: 0.01em;
+    }
+
+    .mockup-content {
+      padding: 24px 20px;
+    }
+
+    .mockup-dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .mockup-stat {
+      background: rgba(30,64,175,.08);
+      border: 1px solid rgba(30,64,175,.18);
+      border-radius: 8px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .mockup-num {
+      display: block;
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 800;
+      font-family: var(--mono);
+      background: linear-gradient(135deg, #1E40AF, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .mockup-label {
+      font-size: 11px;
+      color: var(--text-3);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Trust Bar ──────────────────────────────────────────── */
+    .trust-bar {
+      padding: 0;
+      margin-bottom: 72px;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      border: 1px solid var(--border-dim);
+      border-radius: var(--radius);
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      border-inline-end: 1px solid var(--border-dim);
+      white-space: nowrap;
+    }
+
+    .trust-item:last-child { border-inline-end: none; }
+
+    /* ─── No Credit Card Badge ───────────────────────────────── */
+    .no-cc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(34,197,94,.1);
+      border: 1px solid rgba(34,197,94,.2);
+      border-radius: 99px;
+      padding: 3px 10px;
+      margin-inline-start: 8px;
+      vertical-align: middle;
+    }
+
+    /* ─── Sticky CTA Bar ─────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      inset-inline: 0;
+      z-index: 200;
+      background: rgba(9,9,11,.95);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-cta.visible { transform: translateY(0); }
+
+    .sticky-cta-text {
+      font-size: 14px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .sticky-cta-text strong {
+      color: var(--text-1);
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: clamp(1.8rem, 8vw, 3rem); }
+      .hero-actions .btn-lg { width: 100%; }
+      .mockup-dashboard { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .mockup-content { padding: 16px 12px; }
+      .trust-bar-inner { flex-direction: column; }
+      .trust-item { border-inline-end: none; border-bottom: 1px solid var(--border-dim); width: 100%; justify-content: center; }
+      .trust-item:last-child { border-bottom: none; }
+      .sticky-cta-text { font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -981,6 +1156,9 @@
         <a href="#cta" class="btn btn-primary btn-lg">התחילו 14 ימי ניסיון חינם ←</a>
         <a href="#cta" class="btn btn-secondary btn-lg">קבעו דמו</a>
       </div>
+      <p style="margin-top:-28px;margin-bottom:36px;font-size:12px;color:var(--green);">
+        <span style="display:inline-flex;align-items:center;gap:5px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:99px;padding:3px 12px;">✓ ללא כרטיס אשראי · ביטול בכל עת</span>
+      </p>
       <div class="hero-social-proof">
         <div class="avatar-stack" aria-hidden="true">
           <div class="avatar">ד</div>
@@ -991,8 +1169,46 @@
         </div>
         <span>200+ מתקינים כבר עובדים עם Solar OS</span>
       </div>
+
+      <!-- Product Mockup -->
+      <div class="hero-mockup" aria-hidden="true">
+        <div class="mockup-browser">
+          <div class="mockup-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="mockup-url">app.solar-os.com</span>
+          </div>
+          <div class="mockup-content">
+            <div class="mockup-dashboard">
+              <div class="mockup-stat">
+                <span class="mockup-num">48</span>
+                <span class="mockup-label">לידים חדשים</span>
+              </div>
+              <div class="mockup-stat">
+                <span class="mockup-num">12</span>
+                <span class="mockup-label">פרויקטים פעילים</span>
+              </div>
+              <div class="mockup-stat">
+                <span class="mockup-num">₪284K</span>
+                <span class="mockup-label">הכנסות החודש</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- ─── Trust Bar ─────────────────────────────────────── -->
+  <div class="container trust-bar" aria-label="אמינות ואבטחה">
+    <div class="trust-bar-inner">
+      <div class="trust-item">🛡️ אבטחת מידע מלאה</div>
+      <div class="trust-item">⭐ 4.9/5 דירוג</div>
+      <div class="trust-item">👥 200+ מתקינים</div>
+      <div class="trust-item">🔄 ייבוא מאקסל בקליק</div>
+    </div>
+  </div>
 
   <!-- ─── Stats Bar ──────────────────────────────────────── -->
   <div class="container stats-bar fade-in" aria-label="נתונים מרכזיים">
@@ -1202,6 +1418,7 @@
             <li><span class="check" aria-hidden="true">✓</span> תמיכה בטלפון</li>
           </ul>
           <a href="#cta" class="btn btn-primary" style="width:100%;justify-content:center;">התחילו ניסיון חינם</a>
+          <p style="text-align:center;margin-top:8px;font-size:11px;color:var(--green);">✓ ללא כרטיס אשראי</p>
         </div>
 
         <!-- Enterprise -->
@@ -1299,9 +1516,12 @@
         <div class="label-tag">מוכנים?</div>
         <h2 id="cta-heading">מוכנים לשדרג<br /><span class="gradient-text">את העסק?</span></h2>
         <p>הצטרפו ל-200+ מתקינים שכבר עובדים חכם יותר עם Solar OS.</p>
-        <a href="https://solar-os-app.vercel.app" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          התחילו ניסיון חינם ←
-        </a>
+        <div style="display:inline-flex;flex-direction:column;align-items:center;gap:10px;">
+          <a href="https://solar-os-app.vercel.app" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            התחילו ניסיון חינם ←
+          </a>
+          <span class="no-cc-badge">✓ ללא כרטיס אשראי</span>
+        </div>
         <div class="cta-meta" aria-label="תנאי הניסיון החינם">
           <span>14 ימים חינם</span>
           <span class="cta-meta-dot" aria-hidden="true"></span>
@@ -1331,6 +1551,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- ─── Sticky CTA ────────────────────────────────────── -->
+  <div class="sticky-cta" id="sticky-cta" role="region" aria-label="קריאה לפעולה">
+    <span class="sticky-cta-text"><strong>14 ימי ניסיון חינם</strong> · ללא כרטיס אשראי</span>
+    <a href="#cta" class="btn btn-primary">התחילו עכשיו ←</a>
+  </div>
 
   <!-- ─── JS: Scroll fade-in + FAQ + Mobile nav ──────────── -->
   <script>
@@ -1370,6 +1596,22 @@
           }
         });
       });
+
+      /* Sticky CTA — show after scrolling past hero */
+      var stickyCta  = document.getElementById('sticky-cta');
+      var heroSection = document.getElementById('hero');
+      if (stickyCta && heroSection) {
+        var stickyObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              stickyCta.classList.add('visible');
+            } else {
+              stickyCta.classList.remove('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        stickyObserver.observe(heroSection);
+      }
 
       /* Mobile nav toggle */
       var toggle = document.getElementById('nav-toggle');

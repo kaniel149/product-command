@@ -19,8 +19,8 @@
       --accent2:   #E8A820;
       --accent-mid:#1a5c8a;
       --text-1:    #fafafa;
-      --text-2:    #a1a1aa;
-      --text-3:    #71717a;
+      --text-2:    #d4d4d8;
+      --text-3:    #a1a1aa;
       --amber:     #f59e0b;
       --green:     #10b981;
     }
@@ -200,8 +200,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 800;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.05;
       margin-bottom: 20px;
@@ -1007,10 +1007,168 @@
       .btn-primary, .btn-ghost { justify-content: center; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-cta { display: none; }
+      .hero h1 { font-size: clamp(1.8rem, 10vw, 3rem); }
+      .btn-primary { width: 100%; justify-content: center; }
+    }
+
+    /* ─── Sticky CTA Bar ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 200;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+
+    .sticky-cta-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-2);
+    }
+    .sticky-cta-text strong {
+      color: var(--text-1);
+    }
+
+    .sticky-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--accent2), #D4941A);
+      color: #09090b;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .sticky-cta-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    @media (max-width: 480px) {
+      .sticky-cta { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 16px; }
+      .sticky-cta-btn { text-align: center; justify-content: center; }
+    }
+
+    /* ─── Trust Bar ─── */
+    .trust-bar {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-3);
+    }
+
+    .trust-item + .trust-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .trust-item span:first-child {
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      .trust-item { padding: 6px 12px; font-size: 12px; }
+      .trust-item + .trust-item { border-left: none; }
+      .trust-bar-inner { gap: 4px; }
+    }
+
+    /* ─── Objections Strip ─── */
+    .objections-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .objections-strip-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 20px;
+    }
+
+    .objections-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .objection-item {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .objection-item + .objection-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .objection-q {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-3);
+    }
+
+    .objection-a {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-1);
+    }
+
+    @media (max-width: 768px) {
+      .objections-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .objection-item:nth-child(3) { border-left: none; }
+      .objection-item:nth-child(3), .objection-item:nth-child(4) {
+        border-top: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .objections-grid { grid-template-columns: 1fr; }
+      .objection-item + .objection-item { border-left: none; border-top: 1px solid var(--border); }
     }
   </style>
 </head>
 <body>
+
+  <!-- ─── Sticky CTA Bar ─── -->
+  <div class="sticky-cta" id="sticky-cta">
+    <span class="sticky-cta-text"><strong>Cut your island power bill by 60&ndash;80%</strong></span>
+    <a href="#audit" class="sticky-cta-btn">Get Free Energy Audit &rarr;</a>
+  </div>
 
   <!-- ─── Nav ─── -->
   <nav>
@@ -1037,7 +1195,6 @@
       </p>
       <div class="hero-actions">
         <a href="#audit" class="btn-primary">Get Free Energy Audit &rarr;</a>
-        <a href="#how-it-works" class="btn-ghost">See how it works</a>
       </div>
     </div>
     <div class="wave">
@@ -1067,6 +1224,18 @@
           <span class="stat-value">50+</span>
           <span class="stat-label">Island Installations</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Trust Bar ─── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item"><span>🏝️</span> 50+ Island Installations</div>
+        <div class="trust-item"><span>⭐</span> 4.9/5 Rating</div>
+        <div class="trust-item"><span>🛡️</span> PEA Licensed</div>
+        <div class="trust-item"><span>🔧</span> Marine-Grade Equipment</div>
       </div>
     </div>
   </div>
@@ -1296,6 +1465,31 @@
     </div>
   </section>
 
+  <!-- ─── Objections Strip ─── -->
+  <div class="objections-strip">
+    <div class="container">
+      <p class="objections-strip-label">Common concerns — answered</p>
+      <div class="objections-grid">
+        <div class="objection-item">
+          <span class="objection-q">Worried about typhoons?</span>
+          <span class="objection-a">200 km/h wind rated</span>
+        </div>
+        <div class="objection-item">
+          <span class="objection-q">Salt air corrosion?</span>
+          <span class="objection-a">Marine-grade panels &amp; hardware</span>
+        </div>
+        <div class="objection-item">
+          <span class="objection-q">PEA permits?</span>
+          <span class="objection-a">We handle everything</span>
+        </div>
+        <div class="objection-item">
+          <span class="objection-q">Upfront cost?</span>
+          <span class="objection-a">&#3647;0 down PPA available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── Final CTA ─── -->
   <section class="cta-section" id="audit">
     <div class="container">
@@ -1363,6 +1557,27 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Sticky CTA — show after hero scrolls out of view
+    (function () {
+      var stickyCta = document.getElementById('sticky-cta');
+      var hero = document.querySelector('.hero');
+      if (!stickyCta || !hero) return;
+      if (!('IntersectionObserver' in window)) {
+        stickyCta.classList.add('visible');
+        return;
+      }
+      var heroObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            stickyCta.classList.remove('visible');
+          } else {
+            stickyCta.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      heroObserver.observe(hero);
     })();
 
     // FAQ accordion
