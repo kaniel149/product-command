@@ -5,7 +5,7 @@ export const PRODUCTS: Product[] = [
   { slug: 'panama', name: 'Solaris Panama', icon: '🇵🇦', market: 'B2C Solar', language: 'ES', color: '#0B3D2E' },
   { slug: 'tm-energy', name: 'TM Energy', icon: '🇹🇭', market: 'Island Solar', language: 'EN', color: '#1e40af' },
   { slug: 'solar-os-israel', name: 'Solar OS Israel', icon: '🇮🇱', market: 'SaaS Installers', language: 'HE', color: '#7c3aed' },
-  { slug: 'mivne', name: 'Mivne', icon: '🏗️', market: 'Contractor Oversight', language: 'HE', color: '#0891b2' },
+  { slug: 'solarwatch', name: 'SolarWatch', icon: '🔭', market: 'Partner Oversight', language: 'HE', color: '#0891b2' },
   { slug: 'usa', name: 'Solar OS USA', icon: '🇺🇸', market: 'SaaS Installers', language: 'EN', color: '#dc2626' },
 ]
 
@@ -16,8 +16,8 @@ const DEFAULT_BOARDS: Board[] = [
   { id: 'tm-funnel', productSlug: 'tm-energy', type: 'funnel', name: 'Marketing Funnel' },
   { id: 'israel-journey', productSlug: 'solar-os-israel', type: 'journey', name: 'מסע לקוח' },
   { id: 'israel-funnel', productSlug: 'solar-os-israel', type: 'funnel', name: 'משפך שיווקי' },
-  { id: 'mivne-journey', productSlug: 'mivne', type: 'journey', name: 'מסע לקוח' },
-  { id: 'mivne-funnel', productSlug: 'mivne', type: 'funnel', name: 'משפך שיווקי' },
+  { id: 'solarwatch-journey', productSlug: 'solarwatch', type: 'journey', name: 'מסע לקוח' },
+  { id: 'solarwatch-funnel', productSlug: 'solarwatch', type: 'funnel', name: 'משפך שיווקי' },
   { id: 'usa-journey', productSlug: 'usa', type: 'journey', name: 'Customer Journey' },
   { id: 'usa-funnel', productSlug: 'usa', type: 'funnel', name: 'Marketing Funnel' },
 ]

@@ -1,4 +1,4 @@
-export type ProductSlug = 'panama' | 'tm-energy' | 'solar-os-israel' | 'mivne' | 'usa'
+export type ProductSlug = 'panama' | 'tm-energy' | 'solar-os-israel' | 'solarwatch' | 'usa'
 
 export interface Product {
   slug: ProductSlug

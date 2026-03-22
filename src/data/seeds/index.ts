@@ -6,8 +6,8 @@ import { israelJourneyNodes, israelJourneyEdges } from './israel-journey'
 import { israelFunnelNodes, israelFunnelEdges } from './israel-funnel'
 import { usaJourneyNodes, usaJourneyEdges } from './usa-journey'
 import { usaFunnelNodes, usaFunnelEdges } from './usa-funnel'
-import { mivneJourneyNodes, mivneJourneyEdges } from './mivne-journey'
-import { mivneFunnelNodes, mivneFunnelEdges } from './mivne-funnel'
+import { solarwatchJourneyNodes, solarwatchJourneyEdges } from './solarwatch-journey'
+import { solarwatchFunnelNodes, solarwatchFunnelEdges } from './solarwatch-funnel'
 import type { Node, Edge } from '@xyflow/react'
 
 export const seedData: Record<string, { nodes: Node[]; edges: Edge[] }> = {
@@ -19,6 +19,6 @@ export const seedData: Record<string, { nodes: Node[]; edges: Edge[] }> = {
   'israel-funnel': { nodes: israelFunnelNodes, edges: israelFunnelEdges },
   'usa-journey': { nodes: usaJourneyNodes, edges: usaJourneyEdges },
   'usa-funnel': { nodes: usaFunnelNodes, edges: usaFunnelEdges },
-  'mivne-journey': { nodes: mivneJourneyNodes, edges: mivneJourneyEdges },
-  'mivne-funnel': { nodes: mivneFunnelNodes, edges: mivneFunnelEdges },
+  'solarwatch-journey': { nodes: solarwatchJourneyNodes, edges: solarwatchJourneyEdges },
+  'solarwatch-funnel': { nodes: solarwatchFunnelNodes, edges: solarwatchFunnelEdges },
 }
