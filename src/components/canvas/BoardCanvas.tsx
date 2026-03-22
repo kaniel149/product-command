@@ -12,6 +12,7 @@ import {
 import '@xyflow/react/dist/style.css'
 import { useCanvasStore } from '../../stores/canvasStore'
 import { useAppStore } from '../../stores/appStore'
+import { nodeTypes } from '../nodes'
 
 export function BoardCanvas() {
   const activeBoard = useAppStore((s) => s.activeBoard)
@@ -39,6 +40,7 @@ export function BoardCanvas() {
     <ReactFlow
       nodes={nodes}
       edges={edges}
+      nodeTypes={nodeTypes}
       onNodesChange={handleNodesChange}
       onEdgesChange={handleEdgesChange}
       onConnect={handleConnect}
