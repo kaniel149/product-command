@@ -2,23 +2,18 @@ import { useEffect, useState, type ReactNode } from 'react'
 import { supabase } from '../../lib/supabase'
 import type { User } from '@supabase/supabase-js'
 
-export function AuthGate({ children }: { children: ReactNode }) {
+function AuthGateInner({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
 
-  // Dev mode bypass — no Supabase configured
-  if (!supabase) {
-    return <>{children}</>
-  }
-
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
+    supabase!.auth.getUser().then(({ data }) => {
       setUser(data.user)
       setLoading(false)
     })
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase!.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)
     })
     return () => subscription.unsubscribe()
@@ -43,7 +38,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
           ) : (
             <form onSubmit={async (e) => {
               e.preventDefault()
-              await supabase.auth.signInWithOtp({ email })
+              await supabase!.auth.signInWithOtp({ email })
               setSent(true)
             }}>
               <input
@@ -64,4 +59,13 @@ export function AuthGate({ children }: { children: ReactNode }) {
   }
 
   return <>{children}</>
+}
+
+export function AuthGate({ children }: { children: ReactNode }) {
+  // Dev mode bypass — no Supabase configured
+  if (!supabase) {
+    return <>{children}</>
+  }
+
+  return <AuthGateInner>{children}</AuthGateInner>
 }
